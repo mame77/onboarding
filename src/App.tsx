@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 
 function App() {
     return (
@@ -9,8 +10,12 @@ function App() {
 }
 export default App;
 
-
 function LinkButton(){
-    const count = 999;
-    return <span className="LinkButtonCss">♥{count}</span>;
+    const [count, setCount ] = useState(999);
+    const handleClick = () => {
+        setCount(count + 1);
+    }
+    return <span className="LinkButtonCss" onClick={handleClick}>
+    ♥{count}
+    </span>;
 }
